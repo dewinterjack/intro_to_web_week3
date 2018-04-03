@@ -1,0 +1,19 @@
+<html>
+    <% if !defined? @fname %>
+    <form action="/named-cat">
+        <label>First Name:</label></br>
+        <input type="text" /></br>
+
+        <label>Surname:</label></br>
+        <input type="text />"/></br>
+
+        <input type="submit" value="submit"/>
+    </form>
+    <% end %>
+    <h1>My name is 
+        <% if defined? @fname%>
+            <%= @fname%>
+        <% end %>
+    </h1>
+    <img style='border:red dashed' src='http://f.cl.ly/items/0k0v3e2X3l2f3i1n1Y19/Screen%20Shot%202013-09-10%20at%2011.32.00.png' />
+</html>
