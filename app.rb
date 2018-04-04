@@ -20,13 +20,12 @@ end
 post '/name' do
   # @type [String]
   p params
-  
+  @name = ''
+  @name = @name + params[:name] + ' ' unless params[:name].nil?
+  @name = @name += params[:surname] unless params[:surname].nil?
   erb(:index)
 end
 
 get '/form' do
-  @name = ''
-  @name = @name + params[:name] + ' ' unless params[:name].nil?
-  @name = @name += params[:surname] unless params[:surname].nil?
   erb(:form)
 end
