@@ -1,27 +1,27 @@
 require 'sinatra'
 
 get '/' do
-    "Hello World"
+  'Hello World'
 end
 
 get '/secret' do
-    "My little secret..."
+  'My little secret...'
 end
 
 get '/jack' do
-    "Using shotgun!"
+  'Using shotgun!'
 end
 
 get '/random-cat' do
-    @name = ["Amigo", "Oscar", "Viking"].sample
-    erb(:index)
+  @name = %w[Amigo Oscar Viking].sample
+  erb(:index)
 end
 
 get '/named-cat' do
-    if !params.empty? then
-        @fname = params[:name] + ' '
-        @sname = params[:surname]
-        p params
-    end
-    erb(:index)
+  unless params.empty?
+    @fname = params[:name] + ' '
+    @sname = params[:surname]
+    p params
+  end
+  erb(:index)
 end
