@@ -13,15 +13,20 @@ get '/jack' do
 end
 
 get '/random-cat' do
-  @name = %w[Amigo Oscar Viking].sample
+  @name = %w[Amigo Oscar Viking].sample 
+  erb(:index)
+end 
+
+post '/name' do
+  # @type [String]
+  p params
+  
   erb(:index)
 end
 
-get '/named-cat' do
-  unless params.empty?
-    @fname = params[:name] + ' '
-    @sname = params[:surname]
-    p params
-  end
-  erb(:index)
+get '/form' do
+  @name = ''
+  @name = @name + params[:name] + ' ' unless params[:name].nil?
+  @name = @name += params[:surname] unless params[:surname].nil?
+  erb(:form)
 end
